@@ -1,0 +1,6 @@
+{
+  "name": "CreatorFlow",
+  "description": "Automatisation YouTube & TikTok par IA : scripts, montage, planification et métriques comparatives.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
