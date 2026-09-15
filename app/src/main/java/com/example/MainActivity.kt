@@ -11,8 +11,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -145,7 +148,10 @@ fun CreatorFlowApp(viewModel: MainViewModel) {
     ) { innerPadding ->
         AnimatedContent(
             targetState = currentScreen,
-            transitionSpec = { fadeIn() togetherWith fadeOut() },
+            transitionSpec = {
+                (scaleIn(initialScale = 0.97f, animationSpec = tween(220)) + fadeIn(animationSpec = tween(220)))
+                    .togetherWith(scaleOut(targetScale = 1.03f, animationSpec = tween(180)) + fadeOut(animationSpec = tween(180)))
+            },
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
